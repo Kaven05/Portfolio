@@ -5,25 +5,25 @@
 
 @layer base {
   :root {
-    --background: 8 12% 5%;
+    --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-    --card: 8 12% 8%;
+    --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-    --popover: 8 12% 8%;
+    --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 263 70% 50%;
+    --primary: 199 89% 48%;
     --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 263 70% 50%;
+    --accent: 142 76% 36%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 263 70% 50%;
+    --ring: 199 89% 48%;
     --radius: 0.75rem;
   }
 }
@@ -45,16 +45,16 @@
 
 @layer utilities {
   .gradient-blur {
-    background: radial-gradient(ellipse at center, rgba(138, 43, 226, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+    background: radial-gradient(ellipse at center, rgba(34, 211, 238, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
     filter: blur(40px);
   }
   
   .neon-glow {
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, #8A2BE2 0%, #4B0082 50%, #9370DB 100%);
+    background: linear-gradient(135deg, #22d3ee 0%, #10b981 50%, #06b6d4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -67,8 +67,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.5); }
-  50% { box-shadow: 0 0 30px rgba(138, 43, 226, 0.8); }
+  0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(34, 211, 238, 0.8); }
 }
 
 .float-animation {

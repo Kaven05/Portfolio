@@ -35,7 +35,7 @@ const Navigation = ({ activeSection, setActiveSection, sections }: NavigationPro
               className="text-2xl font-bold text-gradient cursor-pointer"
               onClick={() => setActiveSection('hero')}
             >
-              Portfolio
+              Kavin
             </motion.div>
 
             {/* Desktop Menu */}
