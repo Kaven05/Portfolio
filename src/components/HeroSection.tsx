@@ -1,31 +1,7 @@
 
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { Float } from '@react-three/drei';
 import { Suspense } from 'react';
 import SocialLinks from './SocialLinks';
-
-const FloatingCube = () => {
-  return (
-    <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
-      <mesh>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="#8A2BE2" />
-      </mesh>
-    </Float>
-  );
-};
-
-const FloatingSphere = ({ position }: { position: [number, number, number] }) => {
-  return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={1.5}>
-      <mesh position={position}>
-        <sphereGeometry args={[0.5, 32, 32]} />
-        <meshStandardMaterial color="#4B0082" wireframe />
-      </mesh>
-    </Float>
-  );
-};
 
 const HeroSection = () => {
   const containerVariants = {
@@ -47,6 +23,21 @@ const HeroSection = () => {
     }
   };
 
+  const letterVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    })
+  };
+
+  const name = "Kavin";
+
   return (
     <div className="min-h-screen flex items-center justify-center relative pt-20">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -61,8 +52,19 @@ const HeroSection = () => {
           <motion.div variants={itemVariants}>
             <h1 className="text-5xl md:text-7xl font-bold">
               Hi, I'm{' '}
-              <span className="text-gradient">
-                Alex
+              <span className="text-gradient inline-block">
+                {name.split('').map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    variants={letterVariants}
+                    initial="hidden"
+                    animate="visible"
+                    custom={i}
+                    className="inline-block"
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
               </span>
             </h1>
           </motion.div>
@@ -89,7 +91,7 @@ const HeroSection = () => {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium neon-glow hover:shadow-lg transition-all duration-300"
             >
-              View My Work
+              View Projects
             </motion.button>
             
             <motion.button
@@ -104,22 +106,68 @@ const HeroSection = () => {
           <SocialLinks />
         </motion.div>
 
-        {/* 3D Canvas */}
+        {/* Animated Visual Elements */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="h-96 lg:h-[500px] relative"
+          className="h-96 lg:h-[500px] relative flex items-center justify-center"
         >
-          <Canvas camera={{ position: [0, 0, 5] }}>
-            <Suspense fallback={null}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
-              <FloatingCube />
-              <FloatingSphere position={[-2, 1, 0]} />
-              <FloatingSphere position={[2, -1, 0]} />
-            </Suspense>
-          </Canvas>
+          {/* Floating animated elements */}
+          <motion.div
+            animate={{ 
+              y: [-20, 20, -20],
+              rotate: [0, 180, 360]
+            }}
+            transition={{ 
+              duration: 6, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            className="absolute w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-lg opacity-80"
+          />
+          
+          <motion.div
+            animate={{ 
+              y: [20, -20, 20],
+              x: [-10, 10, -10]
+            }}
+            transition={{ 
+              duration: 4, 
+              repeat: Infinity, 
+              ease: "easeInOut",
+              delay: 1
+            }}
+            className="absolute w-16 h-16 bg-gradient-to-r from-accent to-primary rounded-full opacity-60 top-10 right-10"
+          />
+          
+          <motion.div
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, -180, -360]
+            }}
+            transition={{ 
+              duration: 8, 
+              repeat: Infinity, 
+              ease: "easeInOut",
+              delay: 2
+            }}
+            className="absolute w-12 h-12 border-2 border-primary rounded-lg bottom-20 left-10"
+          />
+
+          {/* Central glowing element */}
+          <motion.div
+            animate={{ 
+              scale: [1, 1.1, 1],
+              opacity: [0.7, 1, 0.7]
+            }}
+            transition={{ 
+              duration: 3, 
+              repeat: Infinity, 
+              ease: "easeInOut"
+            }}
+            className="w-32 h-32 bg-gradient-to-r from-primary via-accent to-primary rounded-full neon-glow opacity-80"
+          />
         </motion.div>
       </div>
     </div>
