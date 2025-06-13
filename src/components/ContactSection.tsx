@@ -1,7 +1,6 @@
-
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Mail, Message, Contact } from 'lucide-react';
+import { Mail, MessageSquare, Contact } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +47,7 @@ const ContactSection = () => {
       href: 'https://linkedin.com/in/yourprofile',
     },
     {
-      icon: Message,
+      icon: MessageSquare,
       title: 'Discord',
       value: 'YourUsername#1234',
       href: '#',

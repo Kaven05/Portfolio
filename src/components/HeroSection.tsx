@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
-import { Float, Text3D } from '@react-three/drei';
+import { Float } from '@react-three/drei';
 import { Suspense } from 'react';
 import SocialLinks from './SocialLinks';
 
