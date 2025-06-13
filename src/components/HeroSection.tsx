@@ -23,19 +23,6 @@ const HeroSection = () => {
     }
   };
 
-  const letterVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    })
-  };
-
   const name = "Kavin";
 
   return (
@@ -56,10 +43,13 @@ const HeroSection = () => {
                 {name.split('').map((letter, i) => (
                   <motion.span
                     key={i}
-                    variants={letterVariants}
-                    initial="hidden"
-                    animate="visible"
-                    custom={i}
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{
+                      delay: i * 0.1,
+                      duration: 0.6,
+                      ease: "easeOut"
+                    }}
                     className="inline-block"
                   >
                     {letter}
