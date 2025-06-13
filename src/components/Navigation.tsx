@@ -30,14 +30,6 @@ const Navigation = ({ activeSection, setActiveSection, sections }: NavigationPro
       >
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold text-gradient cursor-pointer"
-              onClick={() => setActiveSection('hero')}
-            >
-              Kavin
-            </motion.div>
-
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
