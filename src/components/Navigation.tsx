@@ -1,15 +1,8 @@
-
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-interface NavigationProps {
-  activeSection: string;
-  setActiveSection: (section: string) => void;
-  sections: string[];
-}
-
-const Navigation = ({ activeSection, setActiveSection, sections }: NavigationProps) => {
+const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -33,25 +26,15 @@ const Navigation = ({ activeSection, setActiveSection, sections }: NavigationPro
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <motion.button
+                <motion.a
                   key={item.id}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setActiveSection(item.id)}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
-                    activeSection === item.id
-                      ? 'text-primary'
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
+                  href={`#${item.id}`}
+                  className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 text-muted-foreground hover:text-foreground"
                 >
                   {item.label}
-                  {activeSection === item.id && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
-                    />
-                  )}
-                </motion.button>
+                </motion.a>
               ))}
             </div>
 
@@ -77,21 +60,15 @@ const Navigation = ({ activeSection, setActiveSection, sections }: NavigationPro
         >
           <div className="px-6 py-4 space-y-4">
             {navItems.map((item) => (
-              <motion.button
+              <motion.a
                 key={item.id}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  setActiveSection(item.id);
-                  setIsMobileMenuOpen(false);
-                }}
-                className={`block w-full text-left px-4 py-2 text-lg font-medium transition-colors duration-300 ${
-                  activeSection === item.id
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
+                href={`#${item.id}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full text-left px-4 py-2 text-lg font-medium transition-colors duration-300 text-muted-foreground hover:text-foreground"
               >
                 {item.label}
-              </motion.button>
+              </motion.a>
             ))}
           </div>
         </motion.div>

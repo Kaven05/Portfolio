@@ -1,6 +1,5 @@
-
 import { motion } from 'framer-motion';
-import { Suspense } from 'react';
+import { useEffect, useState } from 'react';
 import SocialLinks from './SocialLinks';
 
 const HeroSection = () => {
@@ -24,6 +23,19 @@ const HeroSection = () => {
   };
 
   const name = "Kavin";
+
+  // Typewriter effect for subtitle
+  const subtitle = "Full Stack Developer & Student";
+  const [typed, setTyped] = useState("");
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setTyped(subtitle.slice(0, i + 1));
+      i++;
+      if (i === subtitle.length) clearInterval(interval);
+    }, 50); 
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center relative pt-20">
@@ -61,7 +73,10 @@ const HeroSection = () => {
 
           <motion.div variants={itemVariants}>
             <h2 className="text-2xl md:text-3xl text-muted-foreground">
-              Full Stack Developer & UI/UX Designer
+              <span>
+                {typed}
+                <span className="typewriter-cursor">|</span>
+              </span>
             </h2>
           </motion.div>
 
@@ -81,7 +96,7 @@ const HeroSection = () => {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium neon-glow hover:shadow-lg transition-all duration-300"
             >
-              View Projects
+              <a href="#projects">View Projects</a>
             </motion.button>
             
             <motion.button
@@ -89,7 +104,7 @@ const HeroSection = () => {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 border border-border text-foreground rounded-lg font-medium hover:bg-secondary/50 transition-all duration-300"
             >
-              Download Resume
+              <a href="/resume.pdf" download>Download Resume</a>
             </motion.button>
           </motion.div>
 

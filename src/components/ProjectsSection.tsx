@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Github, Projector } from 'lucide-react';
 
@@ -8,7 +7,6 @@ const ProjectsSection = () => {
       id: 1,
       title: 'E-Commerce Platform',
       description: 'A full-stack e-commerce solution built with React, Node.js, and MongoDB.',
-      image: '/placeholder.svg',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       githubUrl: '#',
       liveUrl: '#',
@@ -17,7 +15,6 @@ const ProjectsSection = () => {
       id: 2,
       title: 'Task Management App',
       description: 'A collaborative task management application with real-time updates.',
-      image: '/placeholder.svg',
       technologies: ['React', 'TypeScript', 'Socket.io', 'PostgreSQL'],
       githubUrl: '#',
       liveUrl: '#',
@@ -26,7 +23,6 @@ const ProjectsSection = () => {
       id: 3,
       title: 'AI Chat Assistant',
       description: 'An intelligent chat assistant powered by OpenAI API.',
-      image: '/placeholder.svg',
       technologies: ['React', 'Python', 'OpenAI', 'FastAPI'],
       githubUrl: '#',
       liveUrl: '#',
@@ -58,54 +54,44 @@ const ProjectsSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-card border border-border rounded-lg overflow-hidden group"
+              className="bg-card border border-border rounded-lg overflow-hidden group p-6"
             >
-              <div className="aspect-video bg-secondary/20 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
+              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+              <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                {project.description}
+              </p>
+              
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
+              <div className="flex space-x-3">
+                <motion.a
+                  href={project.githubUrl}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center space-x-2 px-3 py-2 bg-secondary/50 hover:bg-secondary rounded-lg text-sm transition-colors duration-300"
+                >
+                  <Github size={16} />
+                  <span>Code</span>
+                </motion.a>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex space-x-3">
-                  <motion.a
-                    href={project.githubUrl}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center space-x-2 px-3 py-2 bg-secondary/50 hover:bg-secondary rounded-lg text-sm transition-colors duration-300"
-                  >
-                    <Github size={16} />
-                    <span>Code</span>
-                  </motion.a>
-                  
-                  <motion.a
-                    href={project.liveUrl}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center space-x-2 px-3 py-2 bg-primary hover:bg-primary/80 text-primary-foreground rounded-lg text-sm transition-colors duration-300"
-                  >
-                    <Projector size={16} />
-                    <span>Live</span>
-                  </motion.a>
-                </div>
+                <motion.a
+                  href={project.liveUrl}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center space-x-2 px-3 py-2 bg-primary hover:bg-primary/80 text-primary-foreground rounded-lg text-sm transition-colors duration-300"
+                >
+                  <Projector size={16} />
+                  <span>Live</span>
+                </motion.a>
               </div>
             </motion.div>
           ))}

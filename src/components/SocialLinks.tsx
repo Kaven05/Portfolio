@@ -4,12 +4,9 @@ import { Github, Linkedin, Twitter, Instagram, Youtube, Mail } from 'lucide-reac
 
 const SocialLinks = () => {
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
-    { icon: Mail, href: '#', label: 'Email' },
+    { icon: Github, href: 'https://github.com/Kaven05/', label: 'GitHub' },
+    { icon: Linkedin, href: 'www.linkedin.com/in/ekavin', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:kavine05@gmail.com', label: 'Email' },
   ];
 
   return (

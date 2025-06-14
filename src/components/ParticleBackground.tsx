@@ -1,4 +1,3 @@
-
 import { useCallback } from 'react';
 import Particles from 'react-particles';
 import { loadSlim } from 'tsparticles-slim';
@@ -17,7 +16,7 @@ const ParticleBackground = () => {
       options={{
         background: {
           color: {
-            value: "transparent",
+            value: "linear-gradient(to bottom, #1a1a2e, #16213e)",
           },
         },
         fpsLimit: 120,
@@ -45,10 +44,10 @@ const ParticleBackground = () => {
         },
         particles: {
           color: {
-            value: "#8A2BE2",
+            value: ["#22d3ee", "#10b981", "#06b6d4", "#8A2BE2", "#ff6b6b"],
           },
           links: {
-            color: "#8A2BE2",
+            color: "#22d3ee",
             distance: 150,
             enable: true,
             opacity: 0.3,
