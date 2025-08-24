@@ -1,11 +1,11 @@
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Instagram, Youtube, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const SocialLinks = () => {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Kaven05/', label: 'GitHub' },
-    { icon: Linkedin, href: 'www.linkedin.com/in/ekavin', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ekavin', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:kavine05@gmail.com', label: 'Email' },
   ];
 

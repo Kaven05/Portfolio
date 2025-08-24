@@ -25,7 +25,7 @@ const Index = () => {
     <div className="min-h-screen bg-background relative overflow-hidden grid-pattern">
       <ParticleBackground />
       <Navigation />
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 md:px-8">
+      <div className="relative z-10 flex flex-col items-center justify-start w-full min-h-screen pt-20 pb-10 px-4 sm:px-6 md:px-8 mx-auto space-y-8 md:space-y-16">
         <motion.section
           ref={heroRef}
           initial={{ opacity: 0, y: 50 }}
