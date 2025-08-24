@@ -8,8 +8,8 @@ const SkillsSection = () => {
       icon: Code,
       title: 'Frontend Development',
       skills: [
-        { name: 'React/Next.js', level: 95 },
-        { name: 'TypeScript', level: 90 },
+        { name: 'React', level: 95 },
+        { name: 'JavaScript', level: 90 },
         { name: 'Tailwind CSS', level: 85 },
       ],
     },
@@ -28,8 +28,8 @@ const SkillsSection = () => {
       title: 'Tools & Others',
       skills: [
         { name: 'Git/GitHub', level: 90 },
-        { name: 'Docker', level: 75 },
-        { name: 'AWS', level: 70 },
+        { name: 'Pandas', level: 75 },
+        { name: 'Postman', level: 70 },
       ],
     },
   ];
