@@ -3,14 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/Kaven05/Portfolio/tree/main",
+  "homepage": "https://Kaven05.github.com/Portfolio",
   "scripts": {
    
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+     "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
